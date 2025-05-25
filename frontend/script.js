@@ -1,6 +1,6 @@
-const APILINK = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key="YOURAPIKEY"&page=1';
+const APILINK = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=YOURAPIKEY&page=1';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
-const SEARCHAPI = 'https://api.themoviedb.org/3/search/movie?api_key="YOURAPIKEY"&query=';
+const SEARCHAPI = 'https://api.themoviedb.org/3/search/movie?api_key=YOURAPKIEY&query=';
 
 const main = document.getElementById('section');
 const form = document.getElementById('form');
@@ -15,7 +15,9 @@ function returnMovies(url) {
         .then(response => response.json())
         .then(function(data) {
             console.log(data.results);
-            data.results.forEach(element => {
+            data.results
+                .filter(element => element.poster_path !== null)
+                .forEach(element => {
                 const div_card = document.createElement('div');
                 div_card.classList.add('card');
 
@@ -58,5 +60,14 @@ form.addEventListener('submit', function(e) {
     if (searchItem) {
         returnMovies(SEARCHAPI + searchItem);
         search.value = '';
+    }
+});
+
+const clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', function() {
+    main.innerHTML = '';
+
+    for (let i = 1; i <= 10; i++) {
+        returnMovies(`${APILINK}&page=${i}`);
     }
 });

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     transition: all 0.3s ease;
 }
 
@@ -41,14 +41,6 @@ body {
     user-select: none;
 }
 
-.topnav a.active,
-.topnav a:hover {
-    background: rgba(255 255 255 / 0.2);
-    box-shadow: 0 0 8px #fff;
-    transform: scale(1.05);
-    transition: all 0.3s ease;
-}
-
 .search-container {
     display: flex;
     align-items: center;
@@ -75,6 +67,51 @@ body {
 .search-container input[type="search"]:focus {
     background: rgba(255 255 255 / 0.25);
     width: 300px;
+}
+
+#go {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#go:hover {
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 117, 252, 0.6);
+}
+
+#go:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(106, 17, 203, 0.3);
+}
+
+#clear {
+    background-color: #ff1f1f;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.5rem 1.2rem;
+    margin-left: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 31, 31, 0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#clear:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 0, 0, 0.6);
 }
 
 #section {
@@ -350,4 +387,24 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.topnav .active {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 0.2rem 0;
+    user-select: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.topnav .active:hover {
+    color: #d0d0ff;
+    text-shadow: 0 0 10px rgba(106, 17, 203, 0.6);
+    transform: scale(1.04);
 }
